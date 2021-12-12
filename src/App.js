@@ -64,6 +64,17 @@ function App() {
       setTodos(newTodos);
     } 
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const addedTodos = [...todos, {
+        title : value,
+        count : 1
+      }]
+
+      setTodos(addedTodos);
+    }
+
   return (
     <>
     {/* <h1>{timerDays}</h1>
@@ -80,7 +91,7 @@ function App() {
       </nav>
 
       <section className="container">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <input onChange={(e) => {setValue(e.target.value)}} value={value} type="text" name="input" id="input" className="input" placeholder="List"/>
           <button type="submit" className="add-button">add</button>
         </form>
