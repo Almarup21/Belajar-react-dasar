@@ -120,3 +120,31 @@
 .todo-divider {
   border-bottom: 1px solid var(--main-border-color);
 }
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 16px 0;
+}
+
+.infoTotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--main-font-color);
+  font-size: 12px;
+}
+
+.infoTotal>p {
+  font-weight: bold;
+}
+
+.deleteAllButton {
+  color: var(--danger-font-color);
+  font-size: 12px;
+  font-weight: bold;
+}

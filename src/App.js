@@ -92,6 +92,15 @@ function App() {
       setValue('');
     }
 
+    // function menampikan info tentang jumlah counts
+
+    const getTotalCounts = () => {
+      const totalCounts = todos.reduce((total,num) => {
+        return total + num.count;
+      },0)
+      return totalCounts;
+    }
+
   return (
     <>
     {/* <h1>{timerDays}</h1>
@@ -113,6 +122,22 @@ function App() {
           <input onChange={(e) => {setValue(e.target.value)}} value={value} type="text" name="input" id="input" className="input" placeholder="List"/>
           <button type="submit" className="add-button">add</button>
         </form>
+
+
+      <div className="info">
+          <div className="infoTotal">
+            <p>{`Total List : ${todos.length}`}</p>
+          </div>
+          <div className="infoTotal">
+            <p>{`Total Counts : ${getTotalCounts()}`}</p>
+          </div>
+          <button onClick={() => {setTodos([])}} className="deleteAllButton">
+            Delete All List
+          </button>
+      </div>
+
+
+
 
     {todos.length > 0 ? (
       <div className="todos">
