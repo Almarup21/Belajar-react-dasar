@@ -60,7 +60,16 @@ function App() {
 
     const CountHandleMin = (index) => {
       const newTodos = [...todos]
-      newTodos[index].count = newTodos[index].count - 1;
+      if (newTodos[index].count > 0) {
+        // Jika objek tersebut lebih dari 1 , akan berkurang 1
+        newTodos[index].count = newTodos[index].count - 1;
+      }else{
+        // jika objek tersebut kurang dari 0 akan terhapus
+        newTodos.splice(index,1);
+        // array method splice akan menerima 2 parameter yaitu
+        // 1. dimulai dari index keberapa proses penghapusan dilakukan
+        // 2. jumlah data yang ingin dihapus.
+      }
       setTodos(newTodos);
     } 
 
@@ -68,7 +77,7 @@ function App() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-
+      // memperbaiki inputan
       if (!value) {
         alert('Mohon maaf anda tidak memasukan keyword apapun');
         return
