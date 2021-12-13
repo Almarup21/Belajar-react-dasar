@@ -64,8 +64,15 @@ function App() {
       setTodos(newTodos);
     } 
 
+    // membuat inputan menjadi berguna
+
     const handleSubmit = (e) => {
       e.preventDefault();
+
+      if (!value) {
+        alert('Mohon maaf anda tidak memasukan keyword apapun');
+        return
+      }
 
       const addedTodos = [...todos, {
         title : value,
@@ -73,6 +80,7 @@ function App() {
       }]
 
       setTodos(addedTodos);
+      setValue('');
     }
 
   return (
@@ -91,6 +99,7 @@ function App() {
       </nav>
 
       <section className="container">
+        {/* kirim value kesini */}
         <form className="form" onSubmit={handleSubmit}>
           <input onChange={(e) => {setValue(e.target.value)}} value={value} type="text" name="input" id="input" className="input" placeholder="List"/>
           <button type="submit" className="add-button">add</button>
